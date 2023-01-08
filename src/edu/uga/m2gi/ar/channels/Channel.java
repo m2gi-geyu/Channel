@@ -12,22 +12,16 @@ public class Channel {
 	String server;
 	String client;
 	int portServer;
-	int portClient;
 	
 	public Channel(String server,int portServer) {
 		this.server=server;
 		this.portServer=portServer;
-		//Address a=new Address(portA,A);
-		//tasks=new Hashtable<Address,Broker>();
-		//tasks.put(a, b);
 	}
 	
-	public Channel(String client,String server,int portServer) {
+	public Channel(String server,int portServer,String client) {
 		this.server=server;
 		this.portServer=portServer;
 		this.client=client;
-		//tasks=new Hashtable<Address,Broker>();
-		//tasks.put(a, b);
 	}
 	
 
@@ -68,7 +62,8 @@ public class Channel {
 	
 	}
 	public void disconnect() {
-	
+		TableChannel.disconnect(portServer, client);
+
 		isConnected=false;
 	}
 	public boolean disconnected() {

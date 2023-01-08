@@ -18,12 +18,12 @@ public class Broker {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Channel c= new Channel(m_name,port);
+		Channel c=TableChannel.getClient(port);
 		return c;
 	}
 
 	public Channel connect(String name, int port) throws InterruptedException {
-		Channel c=new Channel(m_name,name,port);
+		Channel c=TableChannel.connect(port,m_name);
 		notify();
 		return c;
 	}
